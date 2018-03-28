@@ -1,9 +1,10 @@
 <div class="container">
-  <header-component></header-component>
+  <header-component (selection)="updateSelected($event)"></header-component>
 
-  <h1>suh</h1>
-
-  <app-recipes></app-recipes>
-  <app-shopping-list></app-shopping-list>
+  <app-recipes *ngIf="selected === 'Recipes'"></app-recipes>
+  <app-shopping-list *ngIf="selected !== 'Recipes'"></app-shopping-list>
 
 </div>
+
+<p appBasicHighlight>Style me with basic directive!</p>
+<p [appBetterHighlight]="'red'" [defaultColor]="'yellow'" >Style me with basic directive!</p>

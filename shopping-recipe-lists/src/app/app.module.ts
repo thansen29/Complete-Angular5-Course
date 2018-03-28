@@ -11,6 +11,11 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 
+import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
+import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
+import { UnlessDirective } from './unless.directive';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,13 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     RecipesComponent,
     RecipeListComponent,
     RecipeDetailComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+
+    BasicHighlightDirective,
+
+    BetterHighlightDirective,
+
+    UnlessDirective
   ],
   imports: [
     BrowserModule

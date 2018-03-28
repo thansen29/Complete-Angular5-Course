@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  selected = "Recipes";
+
+  updateSelected(selection) {
+    console.log(selection);
+    this.selected = selection;
+  }
 }
