@@ -4,25 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { GameControlComponent } from './game-control/game-control.component';
-import { OddComponent } from './odd/odd.component';
-import { EvenComponent } from './even/even.component';
-import { BetterHighlightDirective } from './better-highlight.directive';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameControlComponent,
-    OddComponent,
-    EvenComponent,
-    BetterHighlightDirective
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
