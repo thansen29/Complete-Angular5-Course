@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { RecipesService } from './recipes/recipes.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -31,23 +32,20 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
-    DropdownDirective
-
+    DropdownDirective,
     BasicHighlightDirective,
-
     BetterHighlightDirective,
-
     UnlessDirective,
-
     RecipeStartComponent,
-
     RecipeEditComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
