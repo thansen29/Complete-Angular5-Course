@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DataStorageService } from '../shared/data-storage.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 import { Response } from '@angular/http';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'header-component',
@@ -9,6 +9,8 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isAuth = this.authService.isAuthenticated();
+
   constructor(private dataStorageService: DataStorageService,
               private authService: AuthService) {}
 
