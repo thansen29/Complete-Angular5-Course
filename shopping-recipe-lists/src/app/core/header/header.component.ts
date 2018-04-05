@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../../shared/data-storage.service';
 import { Response } from '@angular/http';
 import { AuthService } from '../../auth/auth.service';
@@ -8,16 +8,24 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  isAuth = this.authService.isAuthenticated();
+export class HeaderComponent implements OnInit {
+  isAuth = false;
 
   constructor(private dataStorageService: DataStorageService,
               private authService: AuthService) {}
 
+  ngOnInit() {
+    this.authService.isAuth.subscribe(
+      (authed) => {
+        this.isAuth = authed;
+      }
+    );
+  }
+
   onSaveData() {
     this.dataStorageService.storeRecipes()
       .subscribe(
-        (response: Response) => {
+        (response) => {
           console.log(response);
         }
       );
