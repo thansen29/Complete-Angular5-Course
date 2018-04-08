@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Ingredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions';
-import * as fromShoppingList from '../../shopping-list/store/shopping-list.reducer';
+import * as fromApp from '../../store/app.reducer';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class RecipeDetailComponent implements OnInit {
   constructor(private recipesService: RecipesService,
               private router: Router,
               private route: ActivatedRoute,
-              private store: Store<fromShoppingList.AppState>) { }
+              private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {

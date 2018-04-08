@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../../shared/data-storage.service';
 import { Response } from '@angular/http';
-import { AuthService } from '../../auth/auth.service';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+import * as fromAuth from '../../auth/store/auth.reducer';
+import { Observable } from 'rxjs/Observable';
+import * as AuthActions from '../../auth/store/auth.actions';
 
 @Component({
   selector: 'header-component',
@@ -9,17 +13,13 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isAuth = false;
+  authState: Observable<fromAuth.State>;
 
   constructor(private dataStorageService: DataStorageService,
-              private authService: AuthService) {}
+              private store: Store<fromApp.AppState>) {}
 
   ngOnInit() {
-    this.authService.isAuth.subscribe(
-      (authed) => {
-        this.isAuth = authed;
-      }
-    );
+    this.authState = this.store.select('auth');
   }
 
   onSaveData() {
@@ -36,6 +36,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    this.authService.logout();
+    this.store.dispatch(new AuthActions.Logout());
   }
 }

@@ -4,13 +4,11 @@ import 'rxjs/Rx';
 
 import { RecipesService } from '../recipes/recipes.service';
 import { Recipe } from '../recipes/recipe.model';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class DataStorageService {
   constructor(private httpClient: HttpClient,
-              private recipesService: RecipesService,
-              private authService: AuthService) {}
+              private recipesService: RecipesService) {}
 
   storeRecipes() {
     // const token = this.authService.getToken();
