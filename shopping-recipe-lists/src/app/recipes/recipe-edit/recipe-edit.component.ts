@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { RecipesService } from '../recipes.service';
 import { Recipe } from '../recipe.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -19,7 +18,6 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipesService: RecipesService,
               private router: Router,
               private store: Store<fromRecipe.FeatureState>) { }
 

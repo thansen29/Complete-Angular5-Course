@@ -4,13 +4,9 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
-
-import { DataStorageService } from '../shared/data-storage.service';
-import { AuthGuard } from '../auth/auth-guard.service';
-import { RecipesService } from '../recipes/recipes.service';
 import { AuthInterceptor } from '../shared/auth.interceptor';
 import { LoggingInterceptor } from '../shared/logging.interceptor';
-
+import { AuthGuard } from '../auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -26,8 +22,6 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     HeaderComponent
   ],
   providers: [
-    RecipesService,
-    DataStorageService,
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
