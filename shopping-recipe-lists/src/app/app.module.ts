@@ -31,7 +31,7 @@ import { environment } from '../environments/environment';
     UnlessDirective,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'my-app'}),
     HttpClientModule,
     AppRoutingModule,
     ShoppingListModule,
