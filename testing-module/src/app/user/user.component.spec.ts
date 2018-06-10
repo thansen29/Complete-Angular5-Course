@@ -26,9 +26,20 @@ describe('UserComponent', () => {
 
   it('should use the user name from the service', () => {
     let userService = fixture.debugElement.injector.get(UserService);
+    // fixture.detectChanges();
+    expect(userService.user.name).toEqual(component.user.name);
+  });
+
+  it('should display the user name if the user is logged in', () => {
+    component.isLoggedIn = true;
+    let compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
-    console.log(userService);
-    // expect(userService.user.name).toEqual(component.user.name);
+    expect(compiled.querySelector('p').textContent).toContain(component.user.name);    
+  });
+
+  it('shouldn\'t display the user name if the user is not logged in', () => {
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).not.toContain(component.user.name);    
   })
 
 });
